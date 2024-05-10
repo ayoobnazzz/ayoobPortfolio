@@ -23,31 +23,11 @@ const Index = () => {
         <title>Dizme | Home</title>
       </Head>
       <Home />
-      {/* HERO */}
-      {/* PROCESS */}
-      <Process />
-      {/* /PROCESS */}
-      {/* ABOUT */}
       <About />
-      {/* /ABOUT */}
-      {/* PORTFOLIO */}
-      <Portfolio />
-      {/* /PORTFOLIO */}
-      {/* SKILLS */}
+      <Process />
       <Skills />
-      {/* /SKILLS */}
-      {/* SERVICES */}
       <Service />
-      {/* /SERVICES */}
-      {/* TESTIMONIALS */}
-      {/* <Testimonial /> */}
-      {/* /TESTIMONIALS */}
-      {/* PARTNERS */}
-      {/* <Partners /> */}
-      {/* /PARTNERS */}
-      {/* NEWS */}
       <News />
-      {/* <Newsletter /> */}
       <Contact />
     </Layout>
   );

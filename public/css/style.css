@@ -660,17 +660,17 @@ h6 {
   position: absolute;
   box-shadow: 24px 0px 72px rgba(54, 32, 152, 0.3);
 }
-.dizme_tm_hero .skills.illustrator {
+.dizme_tm_hero .skills.reactjs {
   background-color: #390000;
   top: 20px;
   left: -30px;
 }
-.dizme_tm_hero .skills.photoshop {
+.dizme_tm_hero .skills.nodejs{
   background-color: #001631;
   right: 70px;
   top: 80px;
 }
-.dizme_tm_hero .skills.figma {
+.dizme_tm_hero .skills.nextjs {
   background-color: #fff;
   bottom: 60px;
   left: 140px;
@@ -683,10 +683,10 @@ h6 {
   width: 40px;
   height: 40px;
 }
-.dizme_tm_hero .skills.illustrator .svg {
+.dizme_tm_hero .skills.reactjs .svg {
   color: #ff9a00;
 }
-.dizme_tm_hero .skills.photoshop .svg {
+.dizme_tm_hero .skills.nodejs.svg {
   color: #00a9ff;
 }
 .dizme_tm_down {
@@ -1566,7 +1566,6 @@ h6 {
 }
 .dizme_tm_services .service_list ul li {
   margin: 0px 0px 25px 0px;
-  width: 50%;
   float: left;
   padding-left: 25px;
 }
@@ -2911,14 +2910,14 @@ input[type="number"] {
     width: 25px;
     height: 25px;
   }
-  .dizme_tm_hero .skills.figma {
+  .dizme_tm_hero .skills.nextjs {
     bottom: 20px;
     left: 100px;
   }
-  .dizme_tm_hero .skills.photoshop {
+  .dizme_tm_hero .skills.nodejs{
     right: 110px;
   }
-  .dizme_tm_hero .skills.illustrator {
+  .dizme_tm_hero .skills.reactjs {
     left: -20px;
   }
   .dizme_tm_process .icon .brush {

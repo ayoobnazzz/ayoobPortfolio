@@ -46,7 +46,7 @@ const Portfolio = () => {
   const [popup, setPopup] = useState(false);
 
   return (
-    <div className="dizme_tm_section" id="portfolio">
+    <div className="dizme_tm_section" id="skills">
     
     </div>
   );

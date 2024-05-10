@@ -11,7 +11,7 @@ const Skills = ({ dark }) => {
   }, []);
 
   return (
-    <div className="dizme_tm_section">
+    <div className="dizme_tm_section" id="skills">
       <div className="dizme_tm_skills">
         <div className="container">
           <div className="wrapper">

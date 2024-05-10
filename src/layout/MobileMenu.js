@@ -34,12 +34,12 @@ const MobileMenu = ({ logo }) => {
             </li>
             <li>
               <a onClick={() => setToggle(false)} href="#about">
-                About
+                Summery
               </a>
             </li>
             <li>
-              <a onClick={() => setToggle(false)} href="#portfolio">
-                Portfolio
+              <a onClick={() => setToggle(false)} href="#skills">
+                Skills
               </a>
             </li>
             <li>

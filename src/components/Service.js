@@ -35,12 +35,11 @@ const Service = ({ dark }) => {
       <div className="dizme_tm_services">
         <div className="container">
           <div className="dizme_tm_main_title" data-align="center">
-            <span>Services</span>
-            <h3>What I Do for Clients</h3>
-            <p>
+            <h3>Experiences</h3>
+            {/* <p>
               Most common methods for designing websites that work well on
               desktop is responsive and adaptive design
-            </p>
+            </p> */}
           </div>
           <div className="service_list">
             <ul>
@@ -58,25 +57,19 @@ const Service = ({ dark }) => {
                       >
                         <div className="list_inner tilt-effect">
                           <span className="icon">
-                            {parse(data.icon.svg)}
-                            {dark ? (
+                            {/* {parse(data.icon.svg)} */}
+                          
                               <img
                                 className="back"
-                                src={data.icon.iconBgDark}
+                                src={data.img}
                                 alt="image"
                               />
-                            ) : (
-                              <img
-                                className="back"
-                                src={data.icon.iconBg}
-                                alt="image"
-                              />
-                            )}
+                            
                           </span>
                           <div className="title">
                             <h3>{data.title}</h3>
                             <span className="price">
-                              Starts from <span>${data.price}</span>
+                              <span>{data.price}</span>
                             </span>
                           </div>
                           <div className="text">

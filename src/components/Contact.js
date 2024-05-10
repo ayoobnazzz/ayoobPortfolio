@@ -61,6 +61,7 @@ const Contact = () => {
           <img src="img/brushes/contact/1.png" alt="image" />
         </div>
       </div>
+
     </div>
   );
 };

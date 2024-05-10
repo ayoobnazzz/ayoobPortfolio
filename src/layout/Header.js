@@ -10,10 +10,10 @@ const Header = ({ logo }) => {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#about">About</a>
+                <a href="#summery">Summery</a>
               </li>
               <li>
-                <a href="#portfolio">Portfolio</a>
+                <a href="#skills">Skills</a>
               </li>
               <li>
                 <a href="#service">Service</a>
