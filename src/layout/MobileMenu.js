@@ -2,7 +2,7 @@ import { useState } from "react";
 const MobileMenu = ({ logo }) => {
   const [toggle, setToggle] = useState(false);
   return (
-    <div className="dizme_tm_mobile_menu">
+    <div className="dizme_tm_mobile_menu z-50">
       <div className="mobile_menu_inner">
         <div className="mobile_in">
           <div className="logo">
@@ -33,7 +33,7 @@ const MobileMenu = ({ logo }) => {
               </a>
             </li>
             <li>
-              <a onClick={() => setToggle(false)} href="#about">
+              <a onClick={() => setToggle(false)} href="#summery">
                 Summery
               </a>
             </li>
@@ -43,13 +43,8 @@ const MobileMenu = ({ logo }) => {
               </a>
             </li>
             <li>
-              <a onClick={() => setToggle(false)} href="#service">
-                Service
-              </a>
-            </li>
-            <li>
-              <a onClick={() => setToggle(false)} href="#blog">
-                Blog
+              <a onClick={() => setToggle(false)} href="#experiences">
+              Experiences
               </a>
             </li>
             <li>
@@ -59,7 +54,7 @@ const MobileMenu = ({ logo }) => {
             </li>
             <li className="download_cv">
               <a href="img/cv/1.jpg" download="">
-                <span>Download CV</span>
+                <span>Download Resume</span>
               </a>
             </li>
           </ul>

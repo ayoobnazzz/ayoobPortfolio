@@ -11,7 +11,7 @@ const About = ({ dark }) => {
                 <div className="numbers year">
                   <div className="wrapper">
                     <h3>
-                      <Counter end={9} />
+                      <Counter end={9} />+
                     </h3>
                     <span className="name">
                       Years of
@@ -37,7 +37,7 @@ const About = ({ dark }) => {
                 data-wow-duration="1s"
               >
                 <a className="anchor" href="#contact">
-                  <span>Hire Me</span>
+                  <span>Contact</span>
                 </a>
               </div>
             </div>

@@ -1,14 +1,36 @@
 import { useEffect, useState } from "react";
 import { activeSkillProgress, fatchData } from "../utilits";
 
-const Skills = ({ dark }) => {
+const Skills = () => {
   const [data, setData] = useState({});
+
   useEffect(async () => {
     setData(await fatchData("/static/info.json"));
-  }, []);
-  useEffect(() => {
     window.addEventListener("scroll", activeSkillProgress);
+
   }, []);
+  let scrollers = document.querySelectorAll(".scroller");
+
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
+
+
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+    scroller.setAttribute("data-animated", true);
+
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
+}
 
   return (
     <div className="dizme_tm_section" id="skills">
@@ -27,34 +49,56 @@ const Skills = ({ dark }) => {
                   desktop is responsive and adaptive design
                 </p>
               </div>
-              <div
-                className="dodo_progress wow fadeInUp"
-                data-wow-duration="1s"
-              >
-                {data &&
-                  data.skills &&
-                  data.skills.map((skill, i) => (
-                    <div
-                      className="progress_inner skillsInner___"
-                      data-value={skill.value}
-                      data-color={skill.color}
-                      key={i}
-                    >
-                      <span>
-                        <span className="label">{skill.name}</span>
-                        <span className="number">{skill.value}%</span>
-                      </span>
-                      <div className="background">
-                        <div className="bar">
-                          <div className="bar_in" />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
+
             </div>
        
           </div>
+
+
+<div className="skill-scrller">
+<div class="scroller" data-speed="fast">
+  <ul class="tag-list scroller__inner">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>SSR</li>
+    <li>NodeJs</li>
+    <li>NextJs</li>
+    <li>ReactJs</li>
+    <li>MongoDB</li>
+    <li>MySQL</li>
+    <li>Express</li>
+    <li>SCSS</li>
+    <li>TailWind CSS</li>
+    <li>Bootstrap</li>
+    <li>MUI</li>
+    <li>Redux</li>
+    <li>Styled Component</li>
+    <li>Jest</li>
+    <li>Kubernetes</li>
+    <li>Docker</li>
+    <li>GraphQL</li>
+    <li>Jira</li>
+    <li>D3</li>
+    <li>GCP Cloud</li>
+    <li>GitHub Actions</li>
+    <li>Concourse CI</li>
+    <li>TypeScript</li>
+    <li>Webpack</li>
+    <li>ES6</li>
+    <li>REST API</li>
+    <li>Webpack</li>
+
+  </ul>
+</div>
+</div>
+  
+
+
+
+
+
+    
         </div>
       </div>
     </div>

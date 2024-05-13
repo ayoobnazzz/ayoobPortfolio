@@ -36,7 +36,7 @@ const Home = ({ dark }) => {
               </div>
               <div className="button">
                 <div className="dizme_tm_button">
-                  <a className="anchor" href="#about">
+                  <a className="anchor" href="#summery">
                     <span>About Me</span>
                   </a>
                 </div>

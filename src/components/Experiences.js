@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fatchData } from "../utilits";
 import ServicePopup from "./popup/ServicePopup";
 
-const Service = ({ dark }) => {
+const Experiences = () => {
   const [data, setData] = useState([]);
   const [popupdata, setPopupdata] = useState({});
   const [popup, setPopup] = useState(false);
@@ -26,7 +26,7 @@ const Service = ({ dark }) => {
   };
 
   return (
-    <div className="dizme_tm_section" id="service">
+    <div className="dizme_tm_section" id="experiences">
       <ServicePopup
         data={popupdata}
         open={popup}
@@ -69,7 +69,7 @@ const Service = ({ dark }) => {
                           <div className="title">
                             <h3>{data.title}</h3>
                             <span className="price">
-                              <span>{data.price}</span>
+                              <span>{data.designation}</span>
                             </span>
                           </div>
                           <div className="text">
@@ -98,4 +98,4 @@ const Service = ({ dark }) => {
     </div>
   );
 };
-export default Service;
+export default Experiences;

@@ -29,6 +29,8 @@ const Layout = ({ children, dark }) => {
     window.addEventListener("scroll", stickyNav);
     window.addEventListener("scroll", scrollTop);
   }, []);
+
+
   return (
     <Fragment>
       <PreLoader />
