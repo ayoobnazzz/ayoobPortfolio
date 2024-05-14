@@ -19,7 +19,7 @@ const Index = () => {
   return (
     <Layout>
       <Head>
-        <title>Dizme | Home</title>
+        <title>Ayoob | Home</title>
       </Head>
       <Home />
       <About />

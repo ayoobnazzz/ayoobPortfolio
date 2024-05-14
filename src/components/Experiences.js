@@ -1,7 +1,7 @@
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { fatchData } from "../utilits";
-import ServicePopup from "./popup/ServicePopup";
+import ResponsibilitiesPopup from "./popup/ResponsibilitiesPopup";
 
 const Experiences = () => {
   const [data, setData] = useState([]);
@@ -27,11 +27,7 @@ const Experiences = () => {
 
   return (
     <div className="dizme_tm_section" id="experiences">
-      <ServicePopup
-        data={popupdata}
-        open={popup}
-        close={() => setPopup(false)}
-      />
+
       <div className="dizme_tm_services">
         <div className="container">
           <div className="dizme_tm_main_title" data-align="center">
@@ -75,12 +71,12 @@ const Experiences = () => {
                           <div className="text">
                             <p>{data.shortDec}</p>
                           </div>
-                          <a className="dizme_tm_full_link" href="#" />
-                          <img
+                          {/* <a className="dizme_tm_full_link" href="#" /> */}
+                          {/* <img
                             className="popup_service_image"
                             src="img/service/1.jpg"
                             alt="image"
-                          />
+                          /> */}
                         </div>
                       </li>
                     )
@@ -95,6 +91,13 @@ const Experiences = () => {
           <img src="img/brushes/service/6.png" alt="image" />
         </div>
       </div>
+{popup ?       
+      <ResponsibilitiesPopup
+        data={popupdata}
+        open={popup}
+        close={() => setPopup(false)}
+      /> : null}
+
     </div>
   );
 };

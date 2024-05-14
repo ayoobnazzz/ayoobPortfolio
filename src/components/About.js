@@ -1,5 +1,5 @@
 import Counter from "./Counter";
-const About = ({ dark }) => {
+const About = () => {
   return (
     <div className="dizme_tm_section" id="summery">
       <div className="dizme_tm_about">
@@ -7,7 +7,7 @@ const About = ({ dark }) => {
           <div className="wrapper">
             <div className="left">
               <div className="image">
-                <img src={`img/about/${dark ? 2 : 1}.jpg`} alt="image" />
+                <img src={`img/about/3.jpeg`} alt="image" />
                 <div className="numbers year">
                   <div className="wrapper">
                     <h3>

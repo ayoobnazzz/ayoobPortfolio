@@ -7,7 +7,7 @@ const Process = ({ dark }) => {
     setData(await fatchData("/static/workProcess.json"));
   }, []);
   return (
-    <div className="dizme_tm_section">
+    <div className="dizme_tm_section mt-12">
       <div className="dizme_tm_process">
         <div className="container">
           <div className="list">

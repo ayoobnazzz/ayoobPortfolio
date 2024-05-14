@@ -1,12 +1,13 @@
-@import "swiper/css";
-
-@import "../public/css/plugins.css";
-@import "../public/css/dark.css";
-@import "../public/css/style.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "swiper/css";
+
+@import "../public/css/plugins.css";
+@import "../public/css/style.css";
+
+
 
 .c-pointer {
   cursor: pointer;

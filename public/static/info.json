@@ -3,7 +3,7 @@
   "address": "Chicago, IL",
   "bio": "I'm a User Interface Developer, and I'm very passionate and dedicated to my work.",
   "mainSkill": "Front End Developer",
-  "img": "/img/slider/avatar.png",
+  "img": "/img/slider/photo-template-dev.png",
   "skills": [
     {
       "name": "reactjs",
@@ -29,7 +29,7 @@
   ],
   "contact": {
     "address": "20, Somewhere in world",
-    "email": "hello@dizme.com",
+    "email": "ayoobnazeer628@gmail.com",
     "phn": "+123 456 7890"
   }
 }
