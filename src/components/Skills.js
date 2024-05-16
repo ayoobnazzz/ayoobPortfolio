@@ -56,8 +56,8 @@ function addAnimation() {
 
 
 <div className="skill-scrller">
-<div class="scroller" data-speed="fast">
-  <ul class="tag-list scroller__inner">
+<div className="scroller" data-speed="fast">
+  <ul className="tag-list scroller__inner">
     <li>HTML</li>
     <li>CSS</li>
     <li>JavaScript</li>

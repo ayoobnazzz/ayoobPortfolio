@@ -204,7 +204,7 @@ export const portfolioHover = () => {
       if (title) {
         dizme_tm_portfolio_titles.classList.add("visible");
         dizme_tm_portfolio_titles.innerHTML =
-          title + '<span class="work__cat">' + category + "</span>";
+          title + '<span className="work__cat">' + category + "</span>";
       }
       document.addEventListener("mousemove", (e) => {
         dizme_tm_portfolio_titles.style.left = `${e.clientX - 10}px`;
