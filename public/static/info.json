@@ -25,11 +25,9 @@
     }
   ],
   "social": [
-    { "name": "linkedin", "icon": "icon-linkedin-1", "url": "#" }
+    { "name": "linkedin", "icon": "icon-linkedin-1", "url": "https://www.linkedin.com/in/ayoob-nazeer-57b95b308/" }
   ],
   "contact": {
-    "address": "20, Somewhere in world",
-    "email": "ayoobnazeer628@gmail.com",
-    "phn": "+123 456 7890"
-  }
+    "email": "ayoobnazeer628@gmail.com"
+    }
 }

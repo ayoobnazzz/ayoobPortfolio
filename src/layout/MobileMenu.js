@@ -53,7 +53,7 @@ const MobileMenu = ({ logo }) => {
               </a>
             </li>
             <li className="download_cv">
-              <a href="img/cv/1.jpg" download="">
+              <a href="img/cv/Ayoob_Resume_PDF3.pdf" download="">
                 <span>Download Resume</span>
               </a>
             </li>
