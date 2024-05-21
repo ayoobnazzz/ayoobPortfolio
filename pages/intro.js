@@ -6,7 +6,7 @@ const Intro = () => {
   return (
     <Fragment>
       <Head>
-        <title>Dizme | Intro</title>
+        <title>Ayoob | Portfolio</title>
       </Head>
       <PreLoader />
       <div className="dizme_tm_all_wrap" data-magic-cursor="show">
@@ -20,8 +20,7 @@ const Intro = () => {
             </a>
           </div>
           <div className="short_info">
-            <img src="img/logo/logo.png" alt="image" />
-            <h3>Personal Portfolio Template</h3>
+            <h3>Personal Portfolio</h3>
           </div>
           <span className="intro_line" />
           <span className="intro_line_2" />
