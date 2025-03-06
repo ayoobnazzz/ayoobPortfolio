@@ -10,7 +10,7 @@ const Header = ({ logo }) => {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#summery">Summery</a>
+                <a href="#summery">Summary</a>
               </li>
               <li>
                 <a href="#skills">Skills</a>
