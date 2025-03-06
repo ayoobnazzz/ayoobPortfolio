@@ -1,7 +1,7 @@
 [
   {
     "title": "CNA Insurance",
-    "designation": "Senior Front End Developer",
+    "designation": "Senior Front-End Developer",
     "img": "img/service/cna-logo.png",
     "shortDec": "I specialize in developing and maintaining complex web applications using cutting-edge technologies such as React JS and Next JS.",
     "icon": {
@@ -14,7 +14,7 @@
   },
   {
     "title": "CITI",
-    "designation": "Front End Developer",
+    "designation": "Front-End Developer",
     "img": "img/service/citi-logo.png",
     "shortDec": "I was instrumental in implementing HTML standards for SEO and accessibility, enhancing front-end performance through responsive design, and developing a UI components library.",
     "icon": {
