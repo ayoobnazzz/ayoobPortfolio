@@ -1,11 +1,10 @@
+@import "swiper/css";
+@import "/css/plugins.css";
+@import "/css/style.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "swiper/css";
-
-@import "../public/css/plugins.css";
-@import "../public/css/style.css";
 
 
 
@@ -104,4 +103,219 @@ span.current {
 .map-section iframe {
   height: 600px;
   width: 100%;
+}
+
+/* Particle Background Styles */
+.particle-background-hero,
+.particle-background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle-background-hero canvas,
+.particle-background-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* 3D Card Effects */
+.tilt-effect {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.tilt-effect:hover {
+  transform: translateY(-10px) rotateX(5deg);
+}
+
+/* Parallax Section Styles */
+.dizme_tm_section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Portfolio 3D Cards */
+.portfolio_list .list_inner {
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.6, -0.05, 0.01, 0.99);
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio_list .list_inner:hover {
+  transform: translateY(-10px) rotateY(5deg);
+}
+
+.portfolio_list .list_inner .image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  height: 300px;
+  background: #f5f5f5;
+}
+
+.portfolio_list .list_inner .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio_list ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio_list .list_inner .details {
+  padding: 15px 0;
+  flex-grow: 1;
+}
+
+.portfolio_list .list_inner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(247, 80, 35, 0.9), rgba(255, 179, 36, 0.9));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.portfolio_list .list_inner:hover .overlay {
+  opacity: 1;
+}
+
+.portfolio_list .list_inner .overlay_content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.portfolio_list .list_inner .overlay_content h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.portfolio_list .list_inner .overlay_content .category {
+  display: inline-block;
+  padding: 5px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+/* Filter Buttons */
+.filter_list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filter_list ul li a {
+  padding: 10px 25px;
+  border-radius: 25px;
+  background: rgba(247, 80, 35, 0.1);
+  color: #f75023;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.filter_list ul li.current a,
+.filter_list ul li a:hover {
+  background: #f75023;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(247, 80, 35, 0.3);
+}
+
+/* 3D Perspective for Sections */
+.dizme_tm_hero {
+  perspective: 1000px;
+}
+
+.dizme_tm_hero .content {
+  transform-style: preserve-3d;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark Mode Compatibility */
+@media (prefers-color-scheme: dark) {
+  .portfolio_list .list_inner .overlay {
+    background: linear-gradient(135deg, rgba(247, 80, 35, 0.95), rgba(255, 179, 36, 0.95));
+  }
+  
+  .filter_list ul li a {
+    background: rgba(247, 80, 35, 0.2);
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .three-background-hero,
+  .three-background-container {
+    opacity: 0.5;
+  }
+  
+  .portfolio_list .list_inner:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tilt-effect:hover {
+    transform: translateY(-5px);
+  }
+
+  .portfolio_list .list_inner .image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio_list .list_inner .image {
+    height: 200px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .tilt-effect,
+  .portfolio_list .list_inner,
+  .filter_list ul li a {
+    transition: none;
+  }
+  
+  .three-background-hero,
+  .three-background-container {
+    display: none;
+  }
+}
+
+/* Animation Performance */
+.dizme_tm_section * {
+  will-change: auto;
+}
+
+.portfolio_list .list_inner,
+.tilt-effect {
+  will-change: transform;
 }

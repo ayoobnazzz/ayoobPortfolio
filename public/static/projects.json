@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "title": "AIFA Baby Cloud",
+    "shortDec": "E-commerce platform for baby clothing with Firebase backend",
+    "description": "A modern e-commerce website for baby clothing featuring a clean, user-friendly interface. Built with React and powered by Firebase for authentication, real-time database, and cloud storage. Includes product catalog, shopping cart, user accounts, and secure checkout process.",
+    "img": "/img/projects/aifa-cloud.png",
+    "category": "web",
+    "technologies": ["React", "Firebase Auth", "Firebase Database", "Firebase Storage", "Vite"],
+    "liveUrl": "https://aifa-cloud.netlify.app",
+    "githubUrl": "https://github.com/ayoobnazzz/AIFA-Ecommerce-React",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "E-Commerce Platform",
+    "shortDec": "Full-stack e-commerce solution with React and Node.js",
+    "description": "A comprehensive e-commerce platform featuring user authentication, product management, shopping cart, payment integration, and admin dashboard. Built with modern web technologies for optimal performance and user experience.",
+    "img": "/img/portfolio/1.jpg",
+    "category": "web",
+    "technologies": ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Task Management App",
+    "shortDec": "Collaborative task management with real-time updates",
+    "description": "A real-time collaborative task management application with drag-and-drop functionality, team collaboration features, and progress tracking. Features include task assignments, deadlines, and team communication.",
+    "img": "/img/portfolio/2.jpg",
+    "category": "web",
+    "technologies": ["React", "Socket.io", "PostgreSQL", "TypeScript"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Weather Dashboard",
+    "shortDec": "Interactive weather dashboard with data visualization",
+    "description": "An interactive weather dashboard that displays current conditions, forecasts, and historical data with beautiful data visualizations. Includes location-based weather tracking and customizable widgets.",
+    "img": "/img/portfolio/3.jpg",
+    "category": "web",
+    "technologies": ["React", "D3.js", "Chart.js", "OpenWeather API"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Portfolio Website",
+    "shortDec": "3D immersive portfolio with interactive elements",
+    "description": "A cutting-edge portfolio website featuring 3D elements, smooth animations, and interactive experiences. Built with React Three Fiber and Framer Motion for a memorable user experience.",
+    "img": "/img/portfolio/6.jpg",
+    "category": "web",
+    "technologies": ["Next.js", "React Three Fiber", "Framer Motion", "Three.js"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com/example",
+    "featured": true
+  }
+]
+

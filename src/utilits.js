@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+// ReactDOM import removed - findDOMNode deprecated in React 19
 const preloader_ = () => {
   let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
     navigator.userAgent
@@ -38,12 +38,14 @@ export const customCursor = () => {
     t = document.querySelector(".cursor-outer");
 
   function mouseEvent(element) {
-    ReactDOM.findDOMNode(element).addEventListener("mouseenter", function () {
-      e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
-    });
-    ReactDOM.findDOMNode(element).addEventListener("mouseleave", function () {
-      e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover");
-    });
+    if (element && element.addEventListener) {
+      element.addEventListener("mouseenter", function () {
+        e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
+      });
+      element.addEventListener("mouseleave", function () {
+        e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover");
+      });
+    }
   }
   if (myCursor.length) {
     if (document.body) {
@@ -94,7 +96,7 @@ export const aTagClick = () => {
   const aTag = document.querySelectorAll("[href='#']");
   for (let i = 0; i < aTag.length; i++) {
     const a = aTag[i];
-    ReactDOM.findDOMNode(a).addEventListener("click", (e) => {
+    a.addEventListener("click", (e) => {
       e.preventDefault();
     });
   }
