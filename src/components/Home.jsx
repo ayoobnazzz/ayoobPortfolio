@@ -201,16 +201,17 @@ const Home = ({ dark }) => {
           justify-content: center;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
           transition: all 0.3s ease;
-          background: white;
-          border: 3px solid white;
+          background: transparent;
+          border: none;
         }
         .skill-badge-floating:hover {
           transform: scale(1.15) !important;
         }
         .skill-badge-floating img {
-          width: 50px;
-          height: 50px;
+          width: 70px;
+          height: 70px;
           object-fit: contain;
+          filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
         }
         .hero-stats {
           display: flex;
