@@ -43,7 +43,7 @@ const Skills = () => {
         { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6", level: "Expert" },
         { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E", level: "Expert" },
         { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26", level: "Expert" },
-        { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6", level: "Expert" },
+        { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", level: "Expert" },
         { name: "Redux", icon: "https://cdn.simpleicons.org/redux/764ABC", level: "Advanced" }
       ]
     },
@@ -57,7 +57,7 @@ const Skills = () => {
         { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3", level: "Advanced" },
         { name: "Material-UI", icon: "https://cdn.simpleicons.org/mui/007FFF", level: "Advanced" },
         { name: "Styled Components", icon: "https://cdn.simpleicons.org/styledcomponents/DB7093", level: "Intermediate" },
-        { name: "D3.js", icon: "https://cdn.simpleicons.org/d3dotjs/F9A03C", level: "Intermediate" }
+        { name: "D3.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg", level: "Intermediate" }
       ]
     },
     {
@@ -79,7 +79,7 @@ const Skills = () => {
         { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248", level: "Advanced" },
         { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql/4479A1", level: "Advanced" },
         { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql/4169E1", level: "Intermediate" },
-        { name: "DynamoDB", icon: "https://cdn.simpleicons.org/amazondynamodb/4053D6", level: "Intermediate" }
+        { name: "DynamoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", level: "Intermediate" }
       ]
     },
     {
@@ -88,7 +88,7 @@ const Skills = () => {
       color: "#4285F4",
       skills: [
         { name: "GCP", icon: "https://cdn.simpleicons.org/googlecloud/4285F4", level: "Advanced" },
-        { name: "Azure", icon: "https://cdn.simpleicons.org/microsoftazure/0078D4", level: "Advanced" },
+        { name: "Azure", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", level: "Advanced" },
         { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED", level: "Advanced" },
         { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/326CE5", level: "Advanced" },
         { name: "GitHub Actions", icon: "https://cdn.simpleicons.org/githubactions/2088FF", level: "Advanced" }
