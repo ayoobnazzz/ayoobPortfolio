@@ -29,62 +29,6 @@ export const wowJsAnimation = () => {
     new WOW.WOW().init();
   }, 500);
 };
-export const customCursor = () => {
-  var myCursor = document.querySelectorAll(".mouse-cursor"),
-    hamburger = document.querySelector(".hamburger"),
-    kura_tm_topbar = document.querySelector(".kura_tm_topbar "),
-    pointer = document.querySelector(".cursor-pointer"),
-    e = document.querySelector(".cursor-inner"),
-    t = document.querySelector(".cursor-outer");
-
-  function mouseEvent(element) {
-    if (element && element.addEventListener) {
-      element.addEventListener("mouseenter", function () {
-        e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
-      });
-      element.addEventListener("mouseleave", function () {
-        e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover");
-      });
-    }
-  }
-  if (myCursor.length) {
-    if (document.body) {
-      let n,
-        i = 0,
-        o = !1;
-      (window.onmousemove = function (s) {
-        // console.log(document.querySelector(this));
-        o ||
-          (t.style.transform =
-            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-          (e.style.transform =
-            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-          (n = s.clientY),
-          (i = s.clientX);
-      }),
-        document.body.addEventListener(
-          "mouseenter",
-          // "a,.kura_tm_topbar .trigger, .cursor-pointer",
-          function () {
-            let a = document.querySelectorAll("a");
-            e.classList.add("cursor-inner"), t.classList.add("cursor-outer");
-
-            for (let i = 0; i < a.length; i++) {
-              const element = a[i];
-              mouseEvent(element);
-            }
-
-            hamburger && mouseEvent(hamburger);
-            kura_tm_topbar && mouseEvent(kura_tm_topbar);
-            pointer && mouseEvent(pointer);
-          }
-        ),
-        (e.style.visibility = "visible"),
-        (t.style.visibility = "visible");
-    }
-  }
-};
-
 export const preloader = () => {
   preloader_();
   setTimeout(() => {
@@ -192,29 +136,3 @@ export const fatchData = async (url) => {
   return data;
 };
 
-export const portfolioHover = () => {
-  const dizme_tm_portfolio_animation_wrap = document.querySelectorAll(
-      ".dizme_tm_portfolio_animation_wrap"
-    ),
-    dizme_tm_portfolio_titles = document.querySelector(
-      ".dizme_tm_portfolio_titles"
-    );
-  dizme_tm_portfolio_animation_wrap.forEach((element) => {
-    element.addEventListener("mousemove", () => {
-      let title = element.getAttribute("data-title"),
-        category = element.getAttribute("data-category");
-      if (title) {
-        dizme_tm_portfolio_titles.classList.add("visible");
-        dizme_tm_portfolio_titles.innerHTML =
-          title + '<span className="work__cat">' + category + "</span>";
-      }
-      document.addEventListener("mousemove", (e) => {
-        dizme_tm_portfolio_titles.style.left = `${e.clientX - 10}px`;
-        dizme_tm_portfolio_titles.style.top = `${e.clientY + 25}px`;
-      });
-    });
-    element.addEventListener("mouseleave", () => {
-      dizme_tm_portfolio_titles.classList.remove("visible");
-    });
-  });
-};
