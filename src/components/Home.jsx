@@ -199,7 +199,6 @@ const Home = ({ dark }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
           transition: all 0.3s ease;
           background: transparent;
           border: none;
