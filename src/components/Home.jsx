@@ -322,7 +322,7 @@ const Home = ({ dark }) => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <img
-                    src={data && data.img ? data.img : "/img/slider/avatar.png"}
+                    src={data && data.img ? data.img : "/img/slider/photo-template-dev.png"}
                     alt="Ayoob Nazeer"
                   />
                 </motion.div>

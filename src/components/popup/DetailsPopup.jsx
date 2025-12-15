@@ -10,7 +10,7 @@ const DetailsPopup = ({ open, close, data = {} }) => {
         <div className="description_wrap">
           <div className="popup_details">
             <div className="top_image">
-              <img src={data.img || "img/thumbs/4-2.jpg"} alt={data.title || "image"} />
+              <img src={data.img || "img/portfolio/6.jpg"} alt={data.title || "image"} />
               <div
                 className="main"
                 data-img-url={data.img || "img/portfolio/6.jpg"}
@@ -52,52 +52,6 @@ const DetailsPopup = ({ open, close, data = {} }) => {
                   )}
                 </ul>
               </div>
-            </div>
-            <div className="additional_images">
-              <ul>
-                <li>
-                  <div className="list_inner">
-                    <div className="my_image">
-                      <img src="img/thumbs/4-2.jpg" alt="image" />
-                      <div
-                        className="main"
-                        data-img-url="img/portfolio/1.jpg"
-                        style={{
-                          backgroundImage: 'url("img/portfolio/1.jpg")',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="list_inner">
-                    <div className="my_image">
-                      <img src="img/thumbs/4-2.jpg" alt="image" />
-                      <div
-                        className="main"
-                        data-img-url="img/portfolio/2.jpg"
-                        style={{
-                          backgroundImage: 'url("img/portfolio/2.jpg")',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="list_inner">
-                    <div className="my_image">
-                      <img src="img/thumbs/4-2.jpg" alt="image" />
-                      <div
-                        className="main"
-                        data-img-url="img/portfolio/3.jpg"
-                        style={{
-                          backgroundImage: 'url("img/portfolio/3.jpg")',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
