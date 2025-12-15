@@ -86,6 +86,12 @@ const About = () => {
           margin: 0 0 10px 0;
           line-height: 1;
         }
+        .summary-experience-badge h3 .count-text,
+        .summary-experience-badge h3 .plus-sign {
+          font-size: 56px !important;
+          font-weight: 800;
+          display: inline;
+        }
         .summary-experience-badge span {
           font-size: 16px;
           color: #6f6b80;
@@ -216,7 +222,7 @@ const About = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <h3>
-                    <Counter end={9} />+
+                    <Counter end={9} /><span className="plus-sign">+</span>
                   </h3>
                   <span>Years of Experience</span>
                 </motion.div>
