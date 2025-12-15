@@ -20,11 +20,24 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps in production for smaller bundle size
+    minify: 'esbuild', // Use esbuild for faster minification
+    cssMinify: true, // Minify CSS
+    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor chunks for better caching
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion'],
+          'ui-vendor': ['swiper'],
+        },
+      },
+    },
   },
   publicDir: 'public',
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'framer-motion'],
   },
 });
 

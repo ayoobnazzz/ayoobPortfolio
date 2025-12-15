@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function ParticleBackground({ particleCount = 1500, showShader = true }) {
+export default function ParticleBackground({ particleCount = 400, showShader = true }) {
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
   const particlesRef = useRef([]);
@@ -12,7 +12,17 @@ export default function ParticleBackground({ particleCount = 1500, showShader = 
 
     const ctx = canvas.getContext("2d");
     const isMobile = window.innerWidth < 768;
-    const adjustedParticleCount = isMobile ? Math.floor(particleCount / 3) : particleCount;
+    
+    // Performance detection - reduce particles on slower devices
+    const isLowPerformance = navigator.hardwareConcurrency <= 2 || 
+                            (navigator.deviceMemory && navigator.deviceMemory <= 4);
+    
+    let adjustedParticleCount = particleCount;
+    if (isMobile) {
+      adjustedParticleCount = Math.floor(particleCount / 3);
+    } else if (isLowPerformance) {
+      adjustedParticleCount = Math.floor(particleCount / 2);
+    }
 
     // Set canvas size
     const resizeCanvas = () => {
@@ -67,31 +77,42 @@ export default function ParticleBackground({ particleCount = 1500, showShader = 
         ctx.fill();
       });
 
-      // Draw connections between nearby particles
+      // Draw connections between nearby particles (optimized)
       if (showShader) {
-        for (let i = 0; i < particlesRef.current.length; i++) {
-          for (let j = i + 1; j < particlesRef.current.length; j++) {
-            const p1 = particlesRef.current[i];
-            const p2 = particlesRef.current[j];
+        const maxConnections = Math.min(particlesRef.current.length, 50); // Limit connection checks
+        const connectionDistance = 100;
+        const connectionDistanceSq = connectionDistance * connectionDistance; // Use squared distance to avoid sqrt
+        
+        // Pre-calculate 2D positions for particles
+        const positions2D = particlesRef.current.map((p) => {
+          const scale = 200 / (200 + p.z);
+          return {
+            x: p.x + (p.x - canvas.width / 2) * scale,
+            y: p.y + (p.y - canvas.height / 2) * scale,
+            scale
+          };
+        });
 
-            const scale1 = 200 / (200 + p1.z);
-            const scale2 = 200 / (200 + p2.z);
-            const x1 = p1.x + (p1.x - canvas.width / 2) * scale1;
-            const y1 = p1.y + (p1.y - canvas.height / 2) * scale1;
-            const x2 = p2.x + (p2.x - canvas.width / 2) * scale2;
-            const y2 = p2.y + (p2.y - canvas.height / 2) * scale2;
+        // Optimized connection drawing with early exit
+        let connectionCount = 0;
+        for (let i = 0; i < particlesRef.current.length && connectionCount < maxConnections * 2; i++) {
+          for (let j = i + 1; j < particlesRef.current.length && connectionCount < maxConnections * 2; j++) {
+            const pos1 = positions2D[i];
+            const pos2 = positions2D[j];
 
-            const dx = x1 - x2;
-            const dy = y1 - y2;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const dx = pos1.x - pos2.x;
+            const dy = pos1.y - pos2.y;
+            const distanceSq = dx * dx + dy * dy;
 
-            if (distance < 100) {
+            if (distanceSq < connectionDistanceSq) {
+              const distance = Math.sqrt(distanceSq);
               ctx.beginPath();
-              ctx.moveTo(x1, y1);
-              ctx.lineTo(x2, y2);
-              ctx.strokeStyle = `rgba(247, 80, 35, ${0.1 * (1 - distance / 100)})`;
+              ctx.moveTo(pos1.x, pos1.y);
+              ctx.lineTo(pos2.x, pos2.y);
+              ctx.strokeStyle = `rgba(247, 80, 35, ${0.1 * (1 - distance / connectionDistance)})`;
               ctx.lineWidth = 0.5;
               ctx.stroke();
+              connectionCount++;
             }
           }
         }

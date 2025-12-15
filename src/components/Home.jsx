@@ -252,7 +252,7 @@ const Home = ({ dark }) => {
           
           {/* Particle Background Canvas */}
           <div className="particle-background-hero" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }}>
-            <ParticleBackground particleCount={1500} showShader={true} />
+            <ParticleBackground particleCount={350} showShader={true} />
           </div>
 
           <div className="container">

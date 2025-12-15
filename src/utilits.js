@@ -21,12 +21,24 @@ const preloader_ = () => {
   }
 };
 
+// WOW.js animation - optimized to load only if needed
+// Most components now use Framer Motion instead
 export const wowJsAnimation = () => {
+  // Only load WOW.js if there are elements that need it
   setTimeout(() => {
     if (typeof window !== "undefined") {
-      window.WOW = require("wowjs");
+      const wowElements = document.querySelectorAll("[class*='wow']");
+      if (wowElements.length > 0) {
+        // Lazy load WOW.js only if elements exist
+        import("wowjs").then((WOW) => {
+          window.WOW = WOW;
+          new WOW.WOW().init();
+        }).catch(() => {
+          // Silently fail if WOW.js can't be loaded
+          console.warn("WOW.js failed to load");
+        });
+      }
     }
-    new WOW.WOW().init();
   }, 500);
 };
 export const preloader = () => {
