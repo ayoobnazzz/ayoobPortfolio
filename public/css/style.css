@@ -658,20 +658,16 @@ h6 {
   height: 75px;
   border-radius: 8px;
   position: absolute;
-  box-shadow: 24px 0px 72px rgba(54, 32, 152, 0.3);
 }
 .dizme_tm_hero .skills.reactjs {
-  background-color: #390000;
   top: 70px;
   left: 80px;
 }
 .dizme_tm_hero .skills.nodejs{
-  background-color: #001631;
   right: 70px;
   top: 80px;
 }
 .dizme_tm_hero .skills.nextjs {
-  background-color: #fff;
   bottom: 60px;
   left: 140px;
 }
