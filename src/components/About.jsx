@@ -86,12 +86,6 @@ const About = () => {
           margin: 0 0 10px 0;
           line-height: 1;
         }
-        .summary-experience-badge h3 .count-text,
-        .summary-experience-badge h3 .plus-sign {
-          font-size: 56px !important;
-          font-weight: 800;
-          display: inline;
-        }
         .summary-experience-badge span {
           font-size: 16px;
           color: #6f6b80;
@@ -222,7 +216,7 @@ const About = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <h3>
-                    <Counter end={9} /><span className="plus-sign">+</span>
+                    <Counter end={9} />+
                   </h3>
                   <span>Years of Experience</span>
                 </motion.div>
@@ -311,6 +305,16 @@ const About = () => {
             </ParallaxSection>
           </div>
         </div>
+        <ParallaxElement speed={0.2}>
+          <div className="brush_1">
+            <img src="img/brushes/about/1.png" alt="image" />
+          </div>
+        </ParallaxElement>
+        <ParallaxElement speed={0.3}>
+          <div className="brush_2">
+            <img src="img/brushes/about/2.png" alt="image" />
+          </div>
+        </ParallaxElement>
       </div>
     </SectionTransition>
   );
