@@ -323,14 +323,6 @@ const PersonalProjects = () => {
         <div className="particle-background-container" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1, pointerEvents: "none" }}>
           <ParticleBackground particleCount={1000} showShader={true} />
         </div>
-
-        {/* Decorative Brushes */}
-        <div className="brush_1">
-          <img src="img/brushes/portfolio/1.png" alt="image" />
-        </div>
-        <div className="brush_2">
-          <img src="img/brushes/portfolio/2.png" alt="image" />
-        </div>
       </div>
 
       {/* Project Details Popup */}

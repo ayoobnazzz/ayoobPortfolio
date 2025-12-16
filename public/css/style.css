@@ -1391,11 +1391,13 @@ h6 {
   position: absolute;
   top: 150px;
   left: 100px;
+  z-index: -1;
 }
 .dizme_tm_portfolio .brush_2 {
   position: absolute;
   bottom: -120px;
   right: 60px;
+  z-index: -1;
 }
 
 /*---------------------------------------------------*/

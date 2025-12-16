@@ -311,16 +311,6 @@ const About = () => {
             </ParallaxSection>
           </div>
         </div>
-        <ParallaxElement speed={0.2}>
-          <div className="brush_1">
-            <img src="img/brushes/about/1.png" alt="image" />
-          </div>
-        </ParallaxElement>
-        <ParallaxElement speed={0.3}>
-          <div className="brush_2">
-            <img src="img/brushes/about/2.png" alt="image" />
-          </div>
-        </ParallaxElement>
       </div>
     </SectionTransition>
   );

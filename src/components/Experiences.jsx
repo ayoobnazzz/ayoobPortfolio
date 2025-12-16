@@ -188,16 +188,6 @@ const Experiences = () => {
               </ul>
             </motion.div>
           </div>
-          <ParallaxElement speed={0.2}>
-            <div className="brush_1">
-              <img src="img/brushes/service/5.png" alt="image" />
-            </div>
-          </ParallaxElement>
-          <ParallaxElement speed={0.3}>
-            <div className="brush_2">
-              <img src="img/brushes/service/6.png" alt="image" />
-            </div>
-          </ParallaxElement>
         </div>
         {popup && (
           <ResponsibilitiesPopup

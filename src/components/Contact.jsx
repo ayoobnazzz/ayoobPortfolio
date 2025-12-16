@@ -195,16 +195,6 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          <ParallaxElement speed={0.2}>
-            <div className="brush_1 left-16 absolute">
-              <img src="img/brushes/news/1.png" alt="image" />
-            </div>
-          </ParallaxElement>
-          <ParallaxElement speed={0.3}>
-            <div className="brush_2 right-0 absolute">
-              <img src="img/brushes/news/2.png" alt="image" />
-            </div>
-          </ParallaxElement>
         </div>
       </div>
     </SectionTransition>
