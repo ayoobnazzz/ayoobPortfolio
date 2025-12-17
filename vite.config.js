@@ -11,13 +11,6 @@ export default defineConfig({
       jsxRuntime: 'automatic',
       // Enable Fast Refresh
       fastRefresh: true,
-      // Optimize dependencies
-      babel: {
-        plugins: [
-          // Remove console logs in production
-          process.env.NODE_ENV === 'production' && ['transform-remove-console', { exclude: ['error', 'warn'] }],
-        ].filter(Boolean),
-      },
     }),
     // Gzip compression
     viteCompression({
