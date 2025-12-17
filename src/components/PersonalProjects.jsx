@@ -5,6 +5,7 @@ import { staggerContainer, fadeInUp } from "../utils/animations";
 import DetailsPopup from "./popup/DetailsPopup";
 import SectionTransition from "./PageTransition";
 import ParticleBackground from "./ParticleBackground";
+import { processImagePaths } from "../utils/imageUtils";
 
 const PersonalProjects = () => {
   const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ const PersonalProjects = () => {
   useEffect(() => {
     async function fetchProjects() {
       const projectsData = await fatchData("/static/projects.json");
-      setData(projectsData);
+      setData(processImagePaths(projectsData));
     }
     fetchProjects();
   }, []);

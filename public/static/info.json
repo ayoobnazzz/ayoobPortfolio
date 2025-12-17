@@ -3,7 +3,7 @@
   "address": "Chicago, IL",
   "bio": "Senior Front-End Developer | Responsive Design & User Experience | Driving Web Innovation",
   "mainSkill": "Senior Front-End Developer",
-  "img": "/img/slider/photo-template-dev.png",
+  "img": "img/slider/photo-template-dev.png",
   "skills": [
     {
       "name": "reactjs",

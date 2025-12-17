@@ -4,12 +4,14 @@ import { fatchData } from "../utilits";
 import { fadeInUp, staggerContainer, scaleIn } from "../utils/animations";
 import SectionTransition from "./PageTransition";
 import ParallaxElement from "./ParallaxSection";
+import { getContactImageUrl } from "../utils/imageUtils";
 
 const Contact = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchContactData() {
-      setData(await fatchData("/static/contact.json"));
+      const fetchedData = await fatchData("/static/contact.json");
+      setData(fetchedData); // Contact data doesn't have image paths from img folder
     }
     fetchContactData();
   }, []);
@@ -168,7 +170,7 @@ const Contact = () => {
                                 objectFit: 'contain'
                               }}
                               alt={data.title}
-                              src={`img/contact/${i + 1}.svg`}
+                              src={getContactImageUrl(`${i + 1}.svg`)}
                             />
                           </motion.div>
                         </div>

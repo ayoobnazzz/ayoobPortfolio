@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { fatchData } from "../utilits";
 import { fadeInUp, staggerContainer, scaleIn } from "../utils/animations";
 import SectionTransition from "./PageTransition";
+import { processImagePaths } from "../utils/imageUtils";
 
 const Process = ({ dark }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchProcessData() {
-      setData(await fatchData("/static/workProcess.json"));
+      const fetchedData = await fatchData("/static/workProcess.json");
+      setData(processImagePaths(fetchedData));
     }
     fetchProcessData();
   }, []);

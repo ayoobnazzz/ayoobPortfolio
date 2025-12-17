@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { getCVUrl } from "../utils/imageUtils";
 
 const Header = ({ logo }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -248,7 +249,7 @@ const Header = ({ logo }) => {
             </li>
             <li className="nav-item">
               <a 
-                href="img/cv/Ayoob_Resume_PDF3.pdf" 
+                href={getCVUrl('Ayoob_Resume_PDF3.pdf')} 
                 download="" 
                 className="nav-link download-btn"
               >

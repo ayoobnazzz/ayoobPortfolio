@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { getCVUrl } from "../utils/imageUtils";
+
 const MobileMenu = ({ logo }) => {
   const [toggle, setToggle] = useState(false);
   return (
@@ -48,7 +50,7 @@ const MobileMenu = ({ logo }) => {
               </a>
             </li>
             <li className="download_cv">
-              <a href="img/cv/Ayoob_Resume_PDF3.pdf" download="">
+              <a href={getCVUrl('Ayoob_Resume_PDF3.pdf')} download="">
                 <span>Download Resume</span>
               </a>
             </li>

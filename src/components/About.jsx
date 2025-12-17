@@ -3,6 +3,7 @@ import Counter from "./Counter";
 import ParallaxSection, { ParallaxElement } from "./ParallaxSection";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "../utils/animations";
 import SectionTransition from "./PageTransition";
+import { getAboutImageUrl, getBrushImageUrl } from "../utils/imageUtils";
 
 const About = () => {
   return (
@@ -206,7 +207,7 @@ const About = () => {
                 variants={fadeInLeft}
               >
                 <div className="summary-image-card">
-                  <img src={`img/about/3.jpeg`} alt="Ayoob Nazeer" />
+                  <img src={getAboutImageUrl('3.jpeg')} alt="Ayoob Nazeer" />
                 </div>
                 <motion.div
                   className="summary-experience-badge"
@@ -305,16 +306,6 @@ const About = () => {
             </ParallaxSection>
           </div>
         </div>
-        <ParallaxElement speed={0.2}>
-          <div className="brush_1">
-            <img src="img/brushes/about/1.png" alt="image" />
-          </div>
-        </ParallaxElement>
-        <ParallaxElement speed={0.3}>
-          <div className="brush_2">
-            <img src="img/brushes/about/2.png" alt="image" />
-          </div>
-        </ParallaxElement>
       </div>
     </SectionTransition>
   );

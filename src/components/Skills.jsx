@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import { activeSkillProgress, fatchData } from "../utilits";
 import { fadeInUp, staggerContainer } from "../utils/animations";
 import SectionTransition from "./PageTransition";
+import { processImagePaths } from "../utils/imageUtils";
 
 const Skills = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
     async function fetchSkillsData() {
-      setData(await fatchData("/static/info.json"));
+      const fetchedData = await fatchData("/static/info.json");
+      setData(processImagePaths(fetchedData));
     }
     fetchSkillsData();
     window.addEventListener("scroll", activeSkillProgress);
