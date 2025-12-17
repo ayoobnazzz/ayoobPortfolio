@@ -4,10 +4,20 @@ import { fatchData } from "../utilits";
 import { fadeInUp, staggerContainer, scaleIn } from "../utils/animations";
 import SectionTransition from "./PageTransition";
 import ParallaxElement from "./ParallaxSection";
-import { getContactImageUrl } from "../utils/imageUtils";
 
 const Contact = () => {
   const [data, setData] = useState([]);
+  
+  // CDN icon URLs for location, email, and LinkedIn
+  const getIconUrl = (title) => {
+    const icons = {
+      'Location': 'https://api.iconify.design/mdi/map-marker.svg?color=%23ffffff',
+      'Email': 'https://api.iconify.design/mdi/email.svg?color=%23ffffff',
+      'LinkedIn': 'https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff'
+    };
+    return icons[title] || '';
+  };
+
   useEffect(() => {
     async function fetchContactData() {
       const fetchedData = await fatchData("/static/contact.json");
@@ -166,11 +176,14 @@ const Contact = () => {
                               style={{ 
                                 width: '70px', 
                                 height: '70px',
-                                filter: 'brightness(0) invert(1)',
                                 objectFit: 'contain'
                               }}
                               alt={data.title}
-                              src={getContactImageUrl(`${i + 1}.svg`)}
+                              src={getIconUrl(data.title)}
+                              onError={(e) => {
+                                console.error(`Failed to load icon for ${data.title}`);
+                                e.target.style.display = 'none';
+                              }}
                             />
                           </motion.div>
                         </div>
