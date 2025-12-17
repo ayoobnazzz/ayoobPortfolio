@@ -56,27 +56,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Improved chunk splitting strategy
-        manualChunks: (id) => {
-          // React and React DOM
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'react-vendor';
-          }
-          // Framer Motion
-          if (id.includes('node_modules/framer-motion')) {
-            return 'animation-vendor';
-          }
-          // Swiper
-          if (id.includes('node_modules/swiper')) {
-            return 'ui-vendor';
-          }
-          // React Helmet
-          if (id.includes('node_modules/react-helmet')) {
-            return 'helmet-vendor';
-          }
-          // Other large dependencies
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
+        manualChunks: {
+          // Split vendor chunks for better caching
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion'],
+          'ui-vendor': ['swiper'],
+          'helmet-vendor': ['react-helmet-async'],
         },
         // Better file naming for caching
         chunkFileNames: 'assets/js/[name]-[hash].js',
