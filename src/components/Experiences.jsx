@@ -5,6 +5,7 @@ import ResponsibilitiesPopup from "./popup/ResponsibilitiesPopup";
 import ParallaxSection, { ParallaxElement } from "./ParallaxSection";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, cardHover } from "../utils/animations";
 import SectionTransition from "./PageTransition";
+import { processImagePaths } from "../utils/imageUtils";
 
 const Experiences = () => {
   const [data, setData] = useState([]);
@@ -13,7 +14,8 @@ const Experiences = () => {
   
   useEffect(() => {
     async function fetchExperiencesData() {
-      setData(await fatchData("/static/service.json"));
+      const fetchedData = await fatchData("/static/service.json");
+      setData(processImagePaths(fetchedData));
     }
     fetchExperiencesData();
   }, []);

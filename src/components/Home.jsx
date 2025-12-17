@@ -4,12 +4,14 @@ import { fatchData } from "../utilits";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "../utils/animations";
 import ParallaxSection, { ParallaxElement } from "./ParallaxSection";
 import ParticleBackground from "./ParticleBackground";
+import { getSliderImageUrl, processImagePaths } from "../utils/imageUtils";
 
 const Home = ({ dark }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     async function fetchData() {
-      setData(await fatchData("/static/info.json"));
+      const fetchedData = await fatchData("/static/info.json");
+      setData(processImagePaths(fetchedData));
     }
     fetchData();
   }, []);
@@ -247,7 +249,7 @@ const Home = ({ dark }) => {
           {/* Background Image */}
           <div
             className="background"
-            data-img-url={`img/slider/${dark ? 2 : 1}.jpg`}
+            data-img-url={getSliderImageUrl(`${dark ? 2 : 1}.jpg`)}
           />
           
           {/* Particle Background Canvas */}
@@ -321,7 +323,7 @@ const Home = ({ dark }) => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <img
-                    src={data && data.img ? data.img : "/img/slider/photo-template-dev.png"}
+                    src={data && data.img ? data.img : getSliderImageUrl("photo-template-dev.png")}
                     alt="Ayoob Nazeer"
                   />
                 </motion.div>
