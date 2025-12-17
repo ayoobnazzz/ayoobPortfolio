@@ -1,14 +1,48 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
+import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react({
       jsxRuntime: 'automatic',
+      // Enable Fast Refresh
+      fastRefresh: true,
+      // Optimize dependencies
+      babel: {
+        plugins: [
+          // Remove console logs in production
+          process.env.NODE_ENV === 'production' && ['transform-remove-console', { exclude: ['error', 'warn'] }],
+        ].filter(Boolean),
+      },
     }),
-  ],
+    // Gzip compression
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240, // Only compress files larger than 10KB
+      algorithm: 'gzip',
+      ext: '.gz',
+    }),
+    // Brotli compression (better than gzip)
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'brotliCompress',
+      ext: '.br',
+    }),
+    // Bundle analyzer (only in analyze mode)
+    process.env.ANALYZE &&
+      visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+      }),
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -20,24 +54,61 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: false, // Disable sourcemaps in production for smaller bundle size
-    minify: 'esbuild', // Use esbuild for faster minification
-    cssMinify: true, // Minify CSS
-    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit
+    sourcemap: false,
+    minify: 'esbuild',
+    cssMinify: 'esbuild',
+    target: 'es2015', // Better browser compatibility
+    chunkSizeWarningLimit: 1000,
+    cssCodeSplit: true, // Split CSS into separate files
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Split vendor chunks for better caching
-          'react-vendor': ['react', 'react-dom'],
-          'animation-vendor': ['framer-motion'],
-          'ui-vendor': ['swiper'],
+        // Improved chunk splitting strategy
+        manualChunks: (id) => {
+          // React and React DOM
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          // Framer Motion
+          if (id.includes('node_modules/framer-motion')) {
+            return 'animation-vendor';
+          }
+          // Swiper
+          if (id.includes('node_modules/swiper')) {
+            return 'ui-vendor';
+          }
+          // React Helmet
+          if (id.includes('node_modules/react-helmet')) {
+            return 'helmet-vendor';
+          }
+          // Other large dependencies
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
+        // Better file naming for caching
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
       },
     },
+    // Terser options for better compression (alternative to esbuild)
+    // minify: 'terser',
+    // terserOptions: {
+    //   compress: {
+    //     drop_console: true,
+    //     drop_debugger: true,
+    //   },
+    // },
   },
   publicDir: 'public',
   optimizeDeps: {
-    include: ['react', 'react-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'framer-motion', 'react-helmet-async'],
+    exclude: ['wowjs'], // Lazy loaded
+  },
+  // Performance hints
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' },
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   },
 });
 

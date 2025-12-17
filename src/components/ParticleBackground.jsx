@@ -1,27 +1,28 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
-export default function ParticleBackground({ particleCount = 400, showShader = true }) {
+const ParticleBackground = memo(function ParticleBackground({ particleCount = 100, showShader = false }) {
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
   const particlesRef = useRef([]);
-  const timeRef = useRef(0);
+  const lastFrameTimeRef = useRef(0);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
     const isMobile = window.innerWidth < 768;
     
     // Performance detection - reduce particles on slower devices
     const isLowPerformance = navigator.hardwareConcurrency <= 2 || 
                             (navigator.deviceMemory && navigator.deviceMemory <= 4);
     
-    let adjustedParticleCount = particleCount;
+    let adjustedParticleCount = Math.min(particleCount, 150); // Cap at 150 max
     if (isMobile) {
-      adjustedParticleCount = Math.floor(particleCount / 3);
+      adjustedParticleCount = Math.min(Math.floor(particleCount / 4), 40); // Max 40 on mobile
     } else if (isLowPerformance) {
-      adjustedParticleCount = Math.floor(particleCount / 2);
+      adjustedParticleCount = Math.min(Math.floor(particleCount / 2), 80); // Max 80 on low-end
     }
 
     // Set canvas size
@@ -30,7 +31,31 @@ export default function ParticleBackground({ particleCount = 400, showShader = t
       canvas.height = window.innerHeight;
     };
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    
+    // Throttle resize event
+    let resizeTimeout;
+    const throttledResize = () => {
+      if (resizeTimeout) return;
+      resizeTimeout = setTimeout(() => {
+        resizeCanvas();
+        resizeTimeout = null;
+      }, 250);
+    };
+    window.addEventListener("resize", throttledResize, { passive: true });
+
+    // Intersection Observer to pause animation when off-screen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting && !animationFrameRef.current) {
+            animate();
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
 
     // Create particles
     const createParticles = () => {
@@ -48,9 +73,25 @@ export default function ParticleBackground({ particleCount = 400, showShader = t
     };
     createParticles();
 
-    // Animation loop
-    const animate = () => {
-      timeRef.current += 0.01;
+    // Throttle animation to 30fps for better performance
+    const targetFPS = 30;
+    const frameDelay = 1000 / targetFPS;
+
+    // Animation loop with FPS throttling
+    const animate = (currentTime = 0) => {
+      if (!isVisibleRef.current) {
+        animationFrameRef.current = null;
+        return;
+      }
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+
+      // Throttle to target FPS
+      const elapsed = currentTime - lastFrameTimeRef.current;
+      if (elapsed < frameDelay) return;
+      
+      lastFrameTimeRef.current = currentTime - (elapsed % frameDelay);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw particles
@@ -77,54 +118,14 @@ export default function ParticleBackground({ particleCount = 400, showShader = t
         ctx.fill();
       });
 
-      // Draw connections between nearby particles (optimized)
-      if (showShader) {
-        const maxConnections = Math.min(particlesRef.current.length, 50); // Limit connection checks
-        const connectionDistance = 100;
-        const connectionDistanceSq = connectionDistance * connectionDistance; // Use squared distance to avoid sqrt
-        
-        // Pre-calculate 2D positions for particles
-        const positions2D = particlesRef.current.map((p) => {
-          const scale = 200 / (200 + p.z);
-          return {
-            x: p.x + (p.x - canvas.width / 2) * scale,
-            y: p.y + (p.y - canvas.height / 2) * scale,
-            scale
-          };
-        });
-
-        // Optimized connection drawing with early exit
-        let connectionCount = 0;
-        for (let i = 0; i < particlesRef.current.length && connectionCount < maxConnections * 2; i++) {
-          for (let j = i + 1; j < particlesRef.current.length && connectionCount < maxConnections * 2; j++) {
-            const pos1 = positions2D[i];
-            const pos2 = positions2D[j];
-
-            const dx = pos1.x - pos2.x;
-            const dy = pos1.y - pos2.y;
-            const distanceSq = dx * dx + dy * dy;
-
-            if (distanceSq < connectionDistanceSq) {
-              const distance = Math.sqrt(distanceSq);
-              ctx.beginPath();
-              ctx.moveTo(pos1.x, pos1.y);
-              ctx.lineTo(pos2.x, pos2.y);
-              ctx.strokeStyle = `rgba(247, 80, 35, ${0.1 * (1 - distance / connectionDistance)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-              connectionCount++;
-            }
-          }
-        }
-      }
-
-      animationFrameRef.current = requestAnimationFrame(animate);
+      // Connection drawing removed for performance - was causing major scroll lag
     };
 
     animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("resize", throttledResize);
+      observer.disconnect();
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -141,8 +142,12 @@ export default function ParticleBackground({ particleCount = 400, showShader = t
         width: "100%",
         height: "100%",
         pointerEvents: "none",
+        willChange: "transform",
+        transform: "translateZ(0)", // Force GPU acceleration
       }}
     />
   );
-}
+});
+
+export default ParticleBackground;
 

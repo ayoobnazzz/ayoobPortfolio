@@ -308,14 +308,20 @@ html {
   }
 }
 
-/* Animation Performance */
-.dizme_tm_section * {
-  will-change: auto;
-}
-
+/* Animation Performance - removed will-change: auto as it's not helpful */
 .portfolio_list .list_inner,
 .tilt-effect {
   will-change: transform;
+}
+
+/* CSS Containment for better rendering performance */
+.dizme_tm_section {
+  contain: layout style;
+}
+
+/* Content visibility for off-screen optimization */
+.dizme_tm_section {
+  content-visibility: auto;
 }
 
 /* Skill Icons Styles */

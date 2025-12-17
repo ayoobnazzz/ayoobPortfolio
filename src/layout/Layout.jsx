@@ -29,9 +29,26 @@ const Layout = ({ children, dark }) => {
   useEffect(() => {
     wowJsAnimation();
     aTagClick();
-    window.addEventListener("scroll", scroll_);
-    window.addEventListener("scroll", stickyNav);
-    window.addEventListener("scroll", scrollTop);
+    
+    // Throttle scroll handlers for better performance
+    let scrollTimeout;
+    const throttledScrollHandler = () => {
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        scroll_();
+        stickyNav();
+        scrollTop();
+        scrollTimeout = null;
+      }, 16); // ~60fps
+    };
+    
+    // Add passive flag to prevent blocking scroll
+    window.addEventListener("scroll", throttledScrollHandler, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", throttledScrollHandler);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
   }, []);
 
 

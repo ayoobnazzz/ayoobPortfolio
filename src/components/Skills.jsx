@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, memo } from "react";
 import { motion } from "framer-motion";
-import { activeSkillProgress, fatchData } from "../utilits";
+import { fatchData } from "../utilits";
 import { fadeInUp, staggerContainer } from "../utils/animations";
 import SectionTransition from "./PageTransition";
 import { processImagePaths } from "../utils/imageUtils";
+import "../styles/skills.css";
 
-const Skills = () => {
+const Skills = memo(() => {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const Skills = () => {
       setData(processImagePaths(fetchedData));
     }
     fetchSkillsData();
-    window.addEventListener("scroll", activeSkillProgress);
+    // Removed scroll listener - using Framer Motion whileInView instead for better performance
   }, []);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const Skills = () => {
     }
   }, []);
 
-  const skillCategories = [
+  const skillCategories = useMemo(() => [
     {
       title: "Frontend Development",
       icon: "🎨",
@@ -110,128 +111,10 @@ const Skills = () => {
         { name: "Jira", icon: "https://cdn.simpleicons.org/jira/0052CC", level: "Advanced" }
       ]
     }
-  ];
+  ], []);
 
   return (
     <SectionTransition>
-      <style>{`
-        .skills-category-card {
-          background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-          border-radius: 20px;
-          padding: 35px 30px;
-          border: 2px solid transparent;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-          height: 100%;
-          position: relative;
-          overflow: hidden;
-        }
-        .skills-category-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg, var(--card-color) 0%, transparent 100%);
-          opacity: 0.05;
-          transition: opacity 0.4s ease;
-          z-index: 0;
-        }
-        .skills-category-card:hover::before {
-          opacity: 0.1;
-        }
-        .skills-category-card:hover {
-          border-color: var(--card-color);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-          transform: translateY(-5px);
-        }
-        .skills-category-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 25px;
-          position: relative;
-          z-index: 1;
-        }
-        .skills-category-icon {
-          font-size: 40px;
-          margin-right: 15px;
-          filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
-        }
-        .skills-category-title {
-          font-size: 24px;
-          font-weight: 700;
-          color: var(--card-color);
-          margin: 0;
-        }
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-          gap: 15px;
-          position: relative;
-          z-index: 1;
-        }
-        .skill-item {
-          background: white;
-          border-radius: 12px;
-          padding: 15px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          transition: all 0.3s ease;
-          border: 2px solid rgba(0,0,0,0.05);
-          cursor: pointer;
-        }
-        .skill-item:hover {
-          transform: translateY(-5px) scale(1.05);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-          border-color: var(--card-color);
-        }
-        .skill-item img {
-          width: 50px;
-          height: 50px;
-          object-fit: contain;
-          transition: transform 0.3s ease;
-        }
-        .skill-item:hover img {
-          transform: rotate(360deg);
-        }
-        .skill-item-name {
-          font-size: 14px;
-          font-weight: 600;
-          color: #000;
-          text-align: center;
-          line-height: 1.2;
-        }
-        .skill-item-level {
-          font-size: 11px;
-          color: #6f6b80;
-          background: rgba(0,0,0,0.05);
-          padding: 3px 10px;
-          border-radius: 12px;
-          font-weight: 500;
-        }
-        .skill-item:hover .skill-item-level {
-          background: var(--card-color);
-          color: white;
-        }
-        .skills-categories-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-          gap: 30px;
-          margin-top: 50px;
-        }
-        @media (max-width: 768px) {
-          .skills-categories-grid {
-            grid-template-columns: 1fr;
-          }
-          .skills-grid {
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 12px;
-          }
-        }
-      `}</style>
       <div className="dizme_tm_section mt-28" id="skills">
         <div className="dizme_tm_skills">
           <div className="container">
@@ -268,8 +151,6 @@ const Skills = () => {
                 <motion.div
                   key={categoryIndex}
                   variants={fadeInUp}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
                   className="skills-category-card"
                   style={{ '--card-color': category.color }}
                 >
@@ -291,6 +172,9 @@ const Skills = () => {
                           src={skill.icon} 
                           alt={skill.name}
                           title={skill.name}
+                          loading="lazy"
+                          width="50"
+                          height="50"
                         />
                         <span className="skill-item-name">{skill.name}</span>
                         <span className="skill-item-level">{skill.level}</span>
@@ -305,5 +189,5 @@ const Skills = () => {
       </div>
     </SectionTransition>
   );
-};
+});
 export default Skills;
