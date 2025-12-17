@@ -39,7 +39,7 @@ const PersonalProjects = memo(() => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h3 style={{ fontSize: '48px', marginBottom: '15px' }}>Personal Projects</h3>
+            <h3 style={{ fontSize: '48px', marginBottom: '15px' }}>Projects</h3>
             <p style={{ 
               fontSize: '18px', 
               color: '#6f6b80', 

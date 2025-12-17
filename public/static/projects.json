@@ -20,7 +20,7 @@
     "category": "web",
     "technologies": ["React", "TypeScript", "GraphQL", "Apollo Server", "WebSocket", "D3.js"],
     "liveUrl": "https://score-wire.onrender.com/",
-    "githubUrl": "",
+    "githubUrl": "https://github.com/ayoobnazzz/score-wire",
     "featured": true
   },
   {
@@ -32,7 +32,7 @@
     "category": "web",
     "technologies": ["React", "Node.js", "Express", "MongoDB", "Supabase Auth", "JWT", "Chart.js"],
     "liveUrl": "https://fit-stack.onrender.com/",
-    "githubUrl": "",
+    "githubUrl": "https://github.com/ayoobnazzz/fit-stack",
     "featured": true
   }
 ]
