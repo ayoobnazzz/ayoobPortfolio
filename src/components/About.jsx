@@ -217,7 +217,7 @@ const About = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <h3>
-                    <Counter end={9} />+
+                    <Counter end={10} />+
                   </h3>
                   <span>Years of Experience</span>
                 </motion.div>
@@ -233,19 +233,23 @@ const About = () => {
                 variants={staggerContainer}
               >
                 <motion.div variants={fadeInUp}>
-                  <span className="summary-role-title">Senior Front-End Developer</span>
+                  <span className="summary-role-title">Senior Front-End / Full-Stack Developer</span>
                 </motion.div>
                 
                 <motion.h3 className="summary-main-text" variants={fadeInUp}>
-                  Transforming complex ideas into elegant, scalable solutions that users love
+                  Building production React platforms that teams can ship independently
                 </motion.h3>
                 
                 <motion.p className="summary-description-text" variants={fadeInUp}>
-                  Passionate developer with 9+ years specializing in architecting high-performance applications that deliver exceptional digital experiences. I've built micro-frontend systems reducing build times by 35%, optimized applications achieving 40% performance boosts, and crafted RESTful APIs handling 10,000+ daily requests with 99.9% uptime.
+                  Senior software engineer with 10+ years building production React applications, with deep experience in hooks, TypeScript, and component architecture at micro-frontend scale. I test with automation and use AI coding agents to move features from design to release.
                 </motion.p>
                 
                 <motion.p className="summary-description-text" variants={fadeInUp}>
-                  My expertise spans React.js, Next.js, Angular, TypeScript, Node.js, and modern cloud technologies including GCP, Azure, Docker, and Kubernetes. I'm a mentor who's elevated team efficiency by 30%, and an innovator leveraging AI-assisted development to accelerate delivery cycles by 25%.
+                  I currently lead the React micro-frontend platform for Ecolab's Pest Intelligence application, including its AI chatbot. Before that I modernized legacy insurance and billing systems at CNA and built financial dashboards at Citigroup, improving front-end performance by up to 40% and supporting 200% user growth.
+                </motion.p>
+                
+                <motion.p className="summary-description-text" variants={fadeInUp}>
+                  BTEC Higher National Diploma in Computing, International College of Business and Technology, awarded by Pearson Edexcel.
                 </motion.p>
 
                 <motion.div className="summary-highlights" variants={fadeInUp}>
@@ -254,9 +258,9 @@ const About = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="summary-highlight-icon">🚀</div>
-                    <div className="summary-highlight-title">Performance Expert</div>
+                    <div className="summary-highlight-title">Performance</div>
                     <div className="summary-highlight-desc">
-                      40% performance boosts and 50% faster data retrieval
+                      40% faster front ends and 200% user growth at CNA
                     </div>
                   </motion.div>
                   
@@ -265,9 +269,9 @@ const About = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="summary-highlight-icon">🎯</div>
-                    <div className="summary-highlight-title">Micro-Frontend Architect</div>
+                    <div className="summary-highlight-title">Micro-Frontends</div>
                     <div className="summary-highlight-desc">
-                      35% reduction in build times with scalable architecture
+                      Ecolab host shell with 6 remotes, and 35% faster CNA builds
                     </div>
                   </motion.div>
                   
@@ -276,9 +280,9 @@ const About = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="summary-highlight-icon">👥</div>
-                    <div className="summary-highlight-title">Team Leader</div>
+                    <div className="summary-highlight-title">Full-Stack APIs</div>
                     <div className="summary-highlight-desc">
-                      30% team efficiency boost through mentorship
+                      Python FastAPI and Node.js services at 10K+ requests a day
                     </div>
                   </motion.div>
                   
@@ -287,9 +291,9 @@ const About = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="summary-highlight-icon">🤖</div>
-                    <div className="summary-highlight-title">AI-Powered Development</div>
+                    <div className="summary-highlight-title">AI-Assisted Delivery</div>
                     <div className="summary-highlight-desc">
-                      25% faster delivery with GitHub Copilot & Claude AI
+                      Claude, Cursor, and GitHub Copilot cut boilerplate time by 25%
                     </div>
                   </motion.div>
                 </motion.div>

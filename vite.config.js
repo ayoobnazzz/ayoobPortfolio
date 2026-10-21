@@ -1,12 +1,49 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 
+const RESUME_FILENAME = 'Ayoob_Nazeer_Senior_Software_Engineer_React.pdf';
+
+function resumeDownloadPlugin(resumeUrl) {
+  const handler = async (req, res, next) => {
+    const requestPath = req.url?.split('?')[0];
+    if (requestPath !== '/resume.pdf') return next();
+
+    try {
+      const response = await fetch(resumeUrl);
+      if (!response.ok) return next();
+      const buffer = Buffer.from(await response.arrayBuffer());
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Length', buffer.length);
+      res.setHeader('Content-Disposition', `attachment; filename="${RESUME_FILENAME}"`);
+      res.end(buffer);
+    } catch {
+      next();
+    }
+  };
+
+  return {
+    name: 'resume-download',
+    configureServer(server) {
+      server.middlewares.use(handler);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(handler);
+    },
+  };
+}
+
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  const resumeUrl = `${env.VITE_R2_BASE_URL}/img/cv/${RESUME_FILENAME}`;
+
+  return {
   plugins: [
+    resumeDownloadPlugin(resumeUrl),
     react({
       jsxRuntime: 'automatic',
       // Enable Fast Refresh
@@ -88,5 +125,6 @@ export default defineConfig({
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   },
+};
 });
 

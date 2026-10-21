@@ -1,8 +1,8 @@
 {
   "name": "Ayoob Nazeer",
   "address": "Chicago, IL",
-  "bio": "Senior Front-End Developer | Responsive Design & User Experience | Driving Web Innovation",
-  "mainSkill": "Senior Front-End Developer",
+  "bio": "10+ years building production React applications across micro-frontends, with full-stack work in GraphQL, Node.js, and Python.",
+  "mainSkill": "Senior Front-End / Full-Stack Developer",
   "img": "img/slider/photo-template-dev.png",
   "skills": [
     {
@@ -25,7 +25,8 @@
     }
   ],
   "social": [
-    { "name": "linkedin", "icon": "icon-linkedin-1", "url": "https://www.linkedin.com/in/ayoob-nazeer-57b95b308/" }
+    { "name": "linkedin", "icon": "icon-linkedin-1", "url": "https://www.linkedin.com/in/ayoob-nazeer-57b95b308/" },
+    { "name": "github", "icon": "icon-github-1", "url": "https://github.com/ayoobnazzz" }
   ],
   "contact": {
     "email": "ayoobnazeer628@gmail.com"

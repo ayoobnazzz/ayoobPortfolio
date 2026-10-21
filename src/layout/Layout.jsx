@@ -55,8 +55,8 @@ const Layout = ({ children, dark }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Ayoob | Portfolio</title>
-        <meta name="description" content="Senior Front-End Developer Portfolio" />
+        <title>Ayoob Nazeer | Senior Front-End / Full-Stack Developer</title>
+        <meta name="description" content="Senior Front-End / Full-Stack Developer with 10+ years building production React, TypeScript, micro-frontends, GraphQL, Node.js, and Python." />
       </Helmet>
       <PreLoader />
       <ImageView />

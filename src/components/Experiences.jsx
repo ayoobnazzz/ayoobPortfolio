@@ -27,6 +27,30 @@ const Experiences = () => {
 
   return (
     <SectionTransition>
+      <style>{`
+        #experiences .service_list > ul {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 24px;
+          margin: 0;
+        }
+        #experiences .service_list > ul > li {
+          width: auto;
+          min-width: 0;
+          margin: 0;
+          padding-left: 0;
+          float: none;
+        }
+        #experiences .service_list > ul > li ul {
+          display: block;
+          margin: 0;
+        }
+        @media (max-width: 1100px) {
+          #experiences .service_list > ul {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
       <div className="dizme_tm_section" id="experiences">
         <div className="dizme_tm_services">
           <div className="container">

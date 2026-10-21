@@ -211,8 +211,7 @@ const Process = ({ dark }) => {
                 margin: '0 auto',
                 lineHeight: '1.6'
               }}>
-                Specialized in building modern, scalable web applications with cutting-edge technologies. 
-                From pixel-perfect interfaces to robust backend systems, I deliver end-to-end solutions.
+                Production React, independently deployed micro-frontends, and full-stack APIs in Node.js and Python.
               </p>
             </motion.div>
 

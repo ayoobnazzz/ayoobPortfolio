@@ -12,8 +12,10 @@ const Contact = () => {
   const getIconUrl = (title) => {
     const icons = {
       'Location': 'https://api.iconify.design/mdi/map-marker.svg?color=%23ffffff',
+      'Phone': 'https://api.iconify.design/mdi/phone.svg?color=%23ffffff',
       'Email': 'https://api.iconify.design/mdi/email.svg?color=%23ffffff',
-      'LinkedIn': 'https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff'
+      'LinkedIn': 'https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff',
+      'GitHub': 'https://api.iconify.design/mdi/github.svg?color=%23ffffff'
     };
     return icons[title] || '';
   };
@@ -194,9 +196,15 @@ const Contact = () => {
                           <div className="contact-text">
                             {data.title === 'Email' ? (
                               <a href={`mailto:${data.dec}`}>{data.dec}</a>
+                            ) : data.title === 'Phone' ? (
+                              <a href="tel:+12243260966">{data.dec}</a>
                             ) : data.title === 'LinkedIn' ? (
                               <a href={data.dec} target="_blank" rel="noopener noreferrer">
                                 View LinkedIn Profile →
+                              </a>
+                            ) : data.title === 'GitHub' ? (
+                              <a href={data.dec} target="_blank" rel="noopener noreferrer">
+                                github.com/ayoobnazzz
                               </a>
                             ) : (
                               <p>{data.dec}</p>

@@ -2,11 +2,11 @@
   {
     "id": 1,
     "title": "AIFA Baby Cloud",
-    "shortDec": "Full-featured e-commerce platform for baby products with real-time inventory",
-    "description": "A sophisticated e-commerce platform specializing in baby clothing and products. Features include real-time inventory management, secure payment processing, user authentication with Firebase Auth, responsive product catalog with filtering and search, shopping cart with persistent state, order tracking, and an intuitive admin dashboard for inventory management.",
+    "shortDec": "Full-stack e-commerce app with catalog, cart, and secure checkout",
+    "description": "Full-stack e-commerce application with a product catalog, cart management, and secure checkout. Firebase backs the data and file storage, and GitHub Actions runs the automated test and deploy workflow.",
     "img": "img/projects/aifa-cloud.png",
     "category": "web",
-    "technologies": ["React", "Firebase Auth", "Firestore", "Firebase Storage", "Vite", "Tailwind CSS"],
+    "technologies": ["React", "Vite", "Firestore", "Cloud Functions", "Firebase Storage", "Jest", "GitHub Actions"],
     "liveUrl": "https://aifa-cloud.netlify.app",
     "githubUrl": "https://github.com/ayoobnazzz/AIFA-Ecommerce-React",
     "featured": true
@@ -14,11 +14,11 @@
   {
     "id": 2,
     "title": "Score-wire",
-    "shortDec": "Real-time sports analytics platform with live game updates and player stats",
-    "description": "An advanced sports analytics platform delivering real-time game scores, comprehensive player statistics, and live match updates. Built with React for a responsive UI, GraphQL with Apollo Server for efficient data fetching, and WebSocket connections for instant score updates. Features include team standings, player performance metrics, historical game data, and interactive data visualizations.",
+    "shortDec": "Live sports scores with league, team, and status filters plus standings",
+    "description": "Live sports scores platform with match filtering by league, team, and status, player statistics, and league standings. A GraphQL API integrates a third-party sports data source and falls back gracefully when rate limits are hit.",
     "img": "img/projects/score-wire.png",
     "category": "web",
-    "technologies": ["React", "TypeScript", "GraphQL", "Apollo Server", "WebSocket", "D3.js"],
+    "technologies": ["React 19", "TypeScript", "Vite", "Apollo Client", "GraphQL", "Apollo Server", "Express"],
     "liveUrl": "https://score-wire.onrender.com/",
     "githubUrl": "https://github.com/ayoobnazzz/score-wire",
     "featured": true

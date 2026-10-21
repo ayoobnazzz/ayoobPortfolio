@@ -436,56 +436,27 @@ const ResponsibilitiesPopup = ({ data, open, close }) => {
                     gap: '10px',
                     flexWrap: 'wrap'
                   }}>
-                    {data.title === "CNA Insurance" && (
-                      <>
-                        {['React.js', 'Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Docker', 'Kubernetes', 'CI/CD'].map((tech, i) => (
-                          <motion.span
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.8 + (i * 0.05) }}
-                            style={{
-                              padding: '6px 14px',
-                              borderRadius: '20px',
-                              fontSize: '12px',
-                              fontWeight: '600',
-                              background: i % 2 === 0 
-                                ? 'linear-gradient(135deg, rgba(247, 80, 35, 0.1) 0%, rgba(255, 123, 84, 0.1) 100%)'
-                                : 'linear-gradient(135deg, rgba(128, 103, 240, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%)',
-                              color: i % 2 === 0 ? '#f75023' : '#8067f0',
-                              border: `1px solid ${i % 2 === 0 ? 'rgba(247, 80, 35, 0.2)' : 'rgba(128, 103, 240, 0.2)'}`
-                            }}
-                          >
-                            {tech}
-                          </motion.span>
-                        ))}
-                      </>
-                    )}
-                    {data.title === "Citigroup" && (
-                      <>
-                        {['Angular', 'TypeScript', 'RxJS', 'SCSS', 'REST API', 'Cloud CMS', 'A/B Testing'].map((tech, i) => (
-                          <motion.span
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.8 + (i * 0.05) }}
-                            style={{
-                              padding: '6px 14px',
-                              borderRadius: '20px',
-                              fontSize: '12px',
-                              fontWeight: '600',
-                              background: i % 2 === 0 
-                                ? 'linear-gradient(135deg, rgba(247, 80, 35, 0.1) 0%, rgba(255, 123, 84, 0.1) 100%)'
-                                : 'linear-gradient(135deg, rgba(128, 103, 240, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%)',
-                              color: i % 2 === 0 ? '#f75023' : '#8067f0',
-                              border: `1px solid ${i % 2 === 0 ? 'rgba(247, 80, 35, 0.2)' : 'rgba(128, 103, 240, 0.2)'}`
-                            }}
-                          >
-                            {tech}
-                          </motion.span>
-                        ))}
-                      </>
-        )}
+                    {(data.technologies || []).map((tech, i) => (
+                      <motion.span
+                        key={tech}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.8 + (i * 0.05) }}
+                        style={{
+                          padding: '6px 14px',
+                          borderRadius: '20px',
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          background: i % 2 === 0
+                            ? 'linear-gradient(135deg, rgba(247, 80, 35, 0.1) 0%, rgba(255, 123, 84, 0.1) 100%)'
+                            : 'linear-gradient(135deg, rgba(128, 103, 240, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%)',
+                          color: i % 2 === 0 ? '#f75023' : '#8067f0',
+                          border: `1px solid ${i % 2 === 0 ? 'rgba(247, 80, 35, 0.2)' : 'rgba(128, 103, 240, 0.2)'}`
+                        }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
       </div>
                 </>
               )}

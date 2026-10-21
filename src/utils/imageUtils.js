@@ -81,7 +81,7 @@ export const getBrushImageUrl = (path) => {
 
 /**
  * Get image URL for CV/Resume
- * @param {string} filename - Filename (e.g., 'Ayoob_Resume_PDF3.pdf')
+ * @param {string} filename - Filename (e.g., 'Ayoob_Nazeer_Senior_Software_Engineer_React.pdf')
  * @returns {string} Full URL to the CV
  */
 export const getCVUrl = (filename) => {

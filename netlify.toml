@@ -5,6 +5,19 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Same-origin resume download. Must stay above the SPA catch-all.
+[[redirects]]
+  from = "/resume.pdf"
+  to = "https://pub-507c829a42fa4b14aeca344d4bb01b1c.r2.dev/img/cv/Ayoob_Nazeer_Senior_Software_Engineer_React.pdf"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/resume.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment; filename=\"Ayoob_Nazeer_Senior_Software_Engineer_React.pdf\""
+
 # Redirect rules for SPA routing
 [[redirects]]
   from = "/*"
